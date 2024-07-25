@@ -6,6 +6,4 @@
 
     double GetPlacementCost();
 
-    bool IsDestructible();
-
 }

@@ -1,34 +1,41 @@
 ﻿using UnityEngine;
 
-public class HousingComplex : MonoBehaviour, IStructure, IWaterConsumer, IEnergyConsumer
+public class HousingComplex : ResidentialBuilding
 {
-    public string GetDescription()
+    public override string GetDescription()
     {
         return "Самые обсуждаемые по дурной славе постройки жилого комплекса от всеми известной компании ПИК";
     }
 
-    public double GetEnergyDemand()
+    public override double GetEnergyDemand()
     {
         return 13;
     }
 
-    public string GetName()
+    public override string GetName()
     {
         return "ЖК «ПИК»";
     }
 
-    public double GetPlacementCost()
+    public override double GetPlacementCost()
     {
         return 8000000;
     }
 
-    public double GetWaterDemand()
+    public override double GetWaterDemand()
     {
         return 34;
     }
 
-    public bool IsDestructible()
+
+    public override bool Destroy()
     {
+        Camera.main.transform.GetComponent<MessageService>().SendMessage("No!");
         return false;
+    }
+
+    public override double DestroyCost()
+    {
+        return 500000;
     }
 }

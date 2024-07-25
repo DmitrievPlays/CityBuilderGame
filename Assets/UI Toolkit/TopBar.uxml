@@ -1,0 +1,12 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <engine:VisualElement style="flex-grow: 1; position: absolute; left: 0; right: 0; top: 0; height: 30px; background-color: rgb(41, 46, 61); flex-direction: row; flex-wrap: nowrap;">
+        <engine:VisualElement style="flex-grow: 0.1; flex-direction: row; flex-shrink: 1;">
+            <engine:VisualElement name="money-icon" style="flex-grow: 1;" />
+            <engine:Label text="Label" name="money" style="color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 0.1; flex-direction: row;">
+            <engine:VisualElement name="gold-icon" style="flex-grow: 1;" />
+            <engine:Label text="Label" name="gold" style="color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

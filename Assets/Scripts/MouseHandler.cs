@@ -1,6 +1,7 @@
+using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MouseHandler : MonoBehaviour
@@ -8,6 +9,7 @@ public class MouseHandler : MonoBehaviour
     private InputSystem_Actions actions;
 
     private InputAction leftClick;
+    private InputAction rightClick;
     private InputAction moveAction;
     private InputAction b;
 
@@ -22,33 +24,57 @@ public class MouseHandler : MonoBehaviour
 
     void Start()
     {
-        Debug.Log("start");
         buildingInfoUI = GameObject.Find("Canvas");
     }
 
     private void OnEnable()
     {
         leftClick = actions.UI.Click;
+        rightClick = actions.UI.RightClick;
         moveAction = actions.Player.Move;
-        b = actions.Player.B;
+        b = actions.Player.B0;
 
         leftClick.Enable();
+        rightClick.Enable();
         moveAction.Enable();
         b.Enable();
 
         moveAction.performed += WPressed;
         leftClick.performed += Click;
+        rightClick.performed += RightClick;
         b.performed += BPressed;
+    }
+
+    public static void Wow()
+    {
+        Debug.Log("wow!");
     }
 
 
     private void Click(InputAction.CallbackContext context)
     {
-        RaycastHit hit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-        {
-            BuildingInfo.ShowInfo(hit.collider.transform.GetComponent<MonoBehaviour>(), buildingInfoUI);
-        }
+            RaycastHit hit;
+
+            PointerEventData data = new PointerEventData(EventSystem.current);
+            data.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(data, results);
+            foreach (RaycastResult result in results)
+            {
+                if (result.gameObject.name == "PanelSettings")
+                    return;
+            }
+
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+            {
+                BuildingInfo.ShowInfo(hit.collider.transform.GetComponent<MonoBehaviour>(), buildingInfoUI);
+            }
+    }
+
+    private void RightClick(InputAction.CallbackContext context)
+    {
+        Debug.Log("Open Builder menu");
     }
 
     private void WPressed(InputAction.CallbackContext context)

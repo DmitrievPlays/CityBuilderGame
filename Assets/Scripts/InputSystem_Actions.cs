@@ -77,7 +77,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""f1ba0d36-48eb-4cd5-b651-1c94a6531f70"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
@@ -119,7 +119,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""B"",
+                    ""name"": ""B0"",
                     ""type"": ""Button"",
                     ""id"": ""3fa694c3-6b07-4bd4-935b-1b898d231b42"",
                     ""expectedControlType"": """",
@@ -532,7 +532,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""B"",
+                    ""action"": ""B0"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -580,18 +580,18 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""Click"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""3c7022bf-7922-4f7c-a998-c437916075ad"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""RightClick"",
-                    ""type"": ""PassThrough"",
+                    ""type"": ""Button"",
                     ""id"": ""44b200b1-1557-4083-816c-b22cbdf77ddf"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": """",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -1130,7 +1130,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         m_Player_Next = m_Player.FindAction("Next", throwIfNotFound: true);
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_RMB = m_Player.FindAction("RMB", throwIfNotFound: true);
-        m_Player_B = m_Player.FindAction("B", throwIfNotFound: true);
+        m_Player_B0 = m_Player.FindAction("B0", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1220,7 +1220,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Next;
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_RMB;
-    private readonly InputAction m_Player_B;
+    private readonly InputAction m_Player_B0;
     public struct PlayerActions
     {
         private @InputSystem_Actions m_Wrapper;
@@ -1235,7 +1235,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         public InputAction @Next => m_Wrapper.m_Player_Next;
         public InputAction @Sprint => m_Wrapper.m_Player_Sprint;
         public InputAction @RMB => m_Wrapper.m_Player_RMB;
-        public InputAction @B => m_Wrapper.m_Player_B;
+        public InputAction @B0 => m_Wrapper.m_Player_B0;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1275,9 +1275,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @RMB.started += instance.OnRMB;
             @RMB.performed += instance.OnRMB;
             @RMB.canceled += instance.OnRMB;
-            @B.started += instance.OnB;
-            @B.performed += instance.OnB;
-            @B.canceled += instance.OnB;
+            @B0.started += instance.OnB0;
+            @B0.performed += instance.OnB0;
+            @B0.canceled += instance.OnB0;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -1312,9 +1312,9 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
             @RMB.started -= instance.OnRMB;
             @RMB.performed -= instance.OnRMB;
             @RMB.canceled -= instance.OnRMB;
-            @B.started -= instance.OnB;
-            @B.performed -= instance.OnB;
-            @B.canceled -= instance.OnB;
+            @B0.started -= instance.OnB0;
+            @B0.performed -= instance.OnB0;
+            @B0.canceled -= instance.OnB0;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1507,7 +1507,7 @@ public partial class @InputSystem_Actions: IInputActionCollection2, IDisposable
         void OnNext(InputAction.CallbackContext context);
         void OnSprint(InputAction.CallbackContext context);
         void OnRMB(InputAction.CallbackContext context);
-        void OnB(InputAction.CallbackContext context);
+        void OnB0(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
