@@ -24,7 +24,6 @@ public static class BuildingInfo
         
 
         Camera.main.GetComponent<AudioSource>().PlayOneShot(clipOpen);
-        //UI.rootVisualElement.Q("other").AddToClassList("hidden");
 
         SetText(UI, "name", (obj as IStructure)?.GetName());
         SetText(UI, "descr", (obj as IStructure)?.GetDescription());
@@ -33,7 +32,12 @@ public static class BuildingInfo
 
         UI.transform.SetParent(canvas.transform, false);
         UI.rootVisualElement.Q("destroy").RegisterCallback<ClickEvent>((e) => {
-            (obj as IDestructible)?.Destroy();
+            var a = (obj as IDestructible)?.Destroy();
+            if (a != true)
+            {
+                Camera.main.transform.GetComponent<MessageService>()
+                .SendMessage("You can't demolish this building!");
+            }
         });
     }
 
@@ -50,13 +54,22 @@ public static class BuildingInfo
 
     private static void SetText(UIDocument UI, string name, string text)
     {
-        Label element = UI.rootVisualElement.Q(name) as Label;
+        VisualElement elementParent = UI.rootVisualElement.Q(name) as VisualElement;
+        Label element = UI.rootVisualElement.Q(name+"_value") as Label;
 
-        if(element == null)
+        if (element == null)
         {
             Debug.LogError($"Error! The child of name '{name}' was not found.");
             return;
         }
-        element.text = text;
+        if (text != null)
+        {
+            element.text = text;
+            if(elementParent != null)
+            {
+                elementParent.style.display = DisplayStyle.Flex;
+                elementParent.style.visibility = Visibility.Visible;
+            }
+        }
     }
 }

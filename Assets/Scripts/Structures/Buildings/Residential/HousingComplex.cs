@@ -38,4 +38,24 @@ public class HousingComplex : ResidentialBuilding
     {
         return 500000;
     }
+
+    public override int GetMaxOccupancy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override int GetCurrentOccupancy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool Leave(int amount)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override bool Enter(int amount)
+    {
+        throw new System.NotImplementedException();
+    }
 }

@@ -45,36 +45,32 @@ public class MouseHandler : MonoBehaviour
         b.performed += BPressed;
     }
 
-    public static void Wow()
-    {
-        Debug.Log("wow!");
-    }
-
 
     private void Click(InputAction.CallbackContext context)
     {
-            RaycastHit hit;
+        Events.instance.TriggerEvent("LClick");
+        RaycastHit hit;
 
-            PointerEventData data = new PointerEventData(EventSystem.current);
-            data.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        PointerEventData data = new PointerEventData(EventSystem.current);
+        data.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
 
-            List<RaycastResult> results = new List<RaycastResult>();
-            EventSystem.current.RaycastAll(data, results);
-            foreach (RaycastResult result in results)
-            {
-                if (result.gameObject.name == "PanelSettings")
-                    return;
-            }
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(data, results);
+        foreach (RaycastResult result in results)
+        {
+            if (result.gameObject.name == "PanelSettings")
+                return;
+        }
 
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
-            {
-                BuildingInfo.ShowInfo(hit.collider.transform.GetComponent<MonoBehaviour>(), buildingInfoUI);
-            }
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit))
+        {
+            BuildingInfo.ShowInfo(hit.collider.transform.GetComponent<MonoBehaviour>(), buildingInfoUI);
+        }
     }
 
     private void RightClick(InputAction.CallbackContext context)
     {
-        Debug.Log("Open Builder menu");
+
     }
 
     private void WPressed(InputAction.CallbackContext context)
@@ -84,7 +80,7 @@ public class MouseHandler : MonoBehaviour
 
     private void BPressed(InputAction.CallbackContext context)
     {
-        Debug.Log("Open Builder menu");
+        Events.instance.TriggerEvent("toggleMenu");
     }
 
     Vector2 temp;

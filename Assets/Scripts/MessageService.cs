@@ -6,10 +6,12 @@ public class MessageService : MonoBehaviour
 {
     private static GameObject template;
     static GameObject root;
+    static AudioClip clipError;
 
     private void Start()
     {
         template = Resources.Load<GameObject>("Prefabs/Message");
+        clipError = (AudioClip)Resources.Load("Sounds/bubble_error");
     }
 
     Coroutine current;
@@ -20,7 +22,8 @@ public class MessageService : MonoBehaviour
             StopCoroutine(current);
         Destroy(root);
         root = GameObject.Instantiate(template);
-        
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(clipError);
+
         Label l = root.GetComponent<UIDocument>().rootVisualElement.Q("message-text") as Label;
         l.text = message;
         current = StartCoroutine(ExecuteAfterTime(4));

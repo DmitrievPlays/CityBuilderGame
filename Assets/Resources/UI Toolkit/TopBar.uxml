@@ -1,0 +1,26 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Resources/UI%20Toolkit/mainStyle.uss?fileID=7433441132597879392&amp;guid=3813c53b66f516a4f991a7bad9b8cec6&amp;type=3#mainStyle" />
+    <engine:VisualElement style="flex-grow: 1; position: absolute; left: 0; right: 0; top: 0; height: 30px; background-color: rgb(41, 46, 61); flex-direction: row; flex-wrap: nowrap;">
+        <engine:VisualElement style="margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px;">
+            <engine:VisualElement name="level" style="flex-grow: initial; flex-shrink: initial; background-color: rgb(255, 255, 255); border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; height: auto; flex-wrap: nowrap; flex-direction: column; flex-basis: auto; width: 27px;">
+                <engine:Label text="1" name="level" enable-rich-text="true" parse-escape-sequences="false" emoji-fallback-support="true" style="color: rgb(0, 0, 0); -unity-text-align: middle-center; white-space: nowrap; flex-direction: column; flex-wrap: nowrap; text-overflow: clip; padding-right: 0; padding-left: 0; margin-right: 2px; padding-top: 0; padding-bottom: 0; margin-bottom: 8px; margin-top: 8px; font-size: 14px; -unity-font-style: bold; -unity-font-definition: url(&quot;project://database/Assets/Resources/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=2230732570650464555&amp;guid=c82ee7ab445972c41b143b285e4e806d&amp;type=3#NotInter-Regular&quot;);" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 0.1; flex-direction: row; flex-shrink: 1;">
+            <engine:VisualElement name="money-icon" style="flex-grow: 0.5; background-image: resource(&apos;Icons/money&apos;); -unity-background-scale-mode: scale-to-fit; margin-top: 3px; margin-bottom: 3px; flex-basis: 0; flex-shrink: 1;" />
+            <engine:Label text="0" name="money" enable-rich-text="true" style="color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+        <engine:VisualElement class="sideBorder" style="flex-grow: 0.1; flex-direction: row;">
+            <engine:VisualElement name="gold-icon" style="flex-grow: 0.5; background-image: resource(&apos;Icons/gold-ingot&apos;); -unity-background-scale-mode: scale-to-fit; margin-top: 3px; margin-bottom: 3px;" />
+            <engine:Label text="0" name="gold" style="color: rgb(255, 255, 255);" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 1; flex-direction: row-reverse; flex-wrap: nowrap;">
+            <engine:VisualElement name="timeScale" style="flex-grow: 1; position: absolute; left: 0; top: 0; bottom: 0; flex-direction: row;">
+                <engine:Button enable-rich-text="true" name="pause" class="button" style="background-image: resource(&apos;Icons/pause&apos;);" />
+                <engine:Button text="1x" name="x1" class="button" />
+                <engine:Button text="2x" name="x2" class="button" />
+                <engine:Button text="3x" name="x3" class="button" />
+            </engine:VisualElement>
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

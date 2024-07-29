@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterConsumer, IEnergyConsumer, IDestructible
+public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterConsumer, IEnergyConsumer, IDestructible, IOccupancy
 {
     public abstract string GetDescription();
     public abstract double GetEnergyDemand();
@@ -17,4 +17,8 @@ public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterCon
     }
 
     public abstract double DestroyCost();
+    public abstract int GetMaxOccupancy();
+    public abstract int GetCurrentOccupancy();
+    public abstract bool Leave(int amount);
+    public abstract bool Enter(int amount);
 }

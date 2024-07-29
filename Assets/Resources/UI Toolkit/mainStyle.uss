@@ -1,0 +1,54 @@
+.hidden {
+    display: none;
+}
+
+.container {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-color: rgb(108, 110, 118);
+    border-bottom-color: rgb(108, 110, 118);
+    border-bottom-width: 2px;
+    border-left-color: rgb(108, 110, 118);
+    border-right-color: rgb(108, 110, 118);
+    border-top-width: 2px;
+    border-right-width: 2px;
+    border-left-width: 2px;
+    padding-top: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    padding-left: 4px;
+    margin-top: 4px;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    margin-left: 4px;
+    -unity-font-style: normal;
+    color: rgb(255, 255, 255);
+    background-color: rgb(43, 44, 58);
+}
+
+.button {
+    -unity-background-scale-mode: scale-to-fit;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-bottom-left-radius: 6px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 1px;
+    border-left-width: 1px;
+    background-color: rgba(0, 0, 0, 0);
+    background-image: none;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+}
+
+.sideBorder {
+    border-left-color: rgba(255, 255, 255, 0.18);
+    border-right-color: rgba(255, 255, 255, 0.18);
+    border-top-color: rgba(255, 255, 255, 0.18);
+    border-bottom-color: rgba(255, 255, 255, 0.18);
+    border-left-width: 0;
+    border-right-width: 1px;
+}

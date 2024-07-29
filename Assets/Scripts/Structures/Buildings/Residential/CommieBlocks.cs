@@ -8,6 +8,16 @@ public class CommieBlocks : ResidentialBuilding
         return 230000;
     }
 
+    public override bool Enter(int amount)
+    {
+        throw new NotImplementedException();
+    }
+
+    public override int GetCurrentOccupancy()
+    {
+        throw new NotImplementedException();
+    }
+
     public override string GetDescription()
     {
         return "Древняя, но в то же время уютная из 100 квартир и 5 подъездов жилая постройка.";
@@ -16,6 +26,11 @@ public class CommieBlocks : ResidentialBuilding
     public override double GetEnergyDemand()
     {
         return 3;
+    }
+
+    public override int GetMaxOccupancy()
+    {
+        throw new NotImplementedException();
     }
 
     public override string GetName()
@@ -31,5 +46,10 @@ public class CommieBlocks : ResidentialBuilding
     public override double GetWaterDemand()
     {
         return 8;
+    }
+
+    public override bool Leave(int amount)
+    {
+        throw new NotImplementedException();
     }
 }

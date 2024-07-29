@@ -1,16 +1,16 @@
 <engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/mainStyle.uss?fileID=7433441132597879392&amp;guid=3813c53b66f516a4f991a7bad9b8cec6&amp;type=3#mainStyle" />
     <engine:VisualElement name="Root" enabled="true" language-direction="Inherit" class="container" style="flex-grow: 1; background-color: rgba(71, 75, 88, 0.92); position: absolute; min-width: 150px; max-width: 200px;">
-        <engine:Label text="Label" name="name" style="justify-content: center; align-items: auto; align-self: auto; align-content: center; -unity-text-align: upper-center; font-size: 16px; -unity-font-style: bold;" />
-        <engine:Label text="Label" name="descr" style="-unity-text-align: upper-center; font-size: 10px; text-overflow: clip; margin-bottom: 10px; margin-top: 0; white-space: normal;" />
-        <engine:VisualElement name="other" enabled="true">
-            <engine:VisualElement style="flex-grow: initial; flex-direction: row; flex-wrap: nowrap; flex-shrink: initial; flex-basis: auto;">
-                <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=c82ee7ab445972c41b143b285e4e806d&amp;type=3#arrow-down&quot;); -unity-background-scale-mode: stretch-to-fill; max-width: 40px;" />
-                <engine:Label text="Label" name="energy" />
+        <engine:Label text="Label" name="name_value" style="justify-content: center; align-items: auto; align-self: auto; align-content: center; -unity-text-align: upper-center; font-size: 16px; -unity-font-style: bold;" />
+        <engine:Label text="Label" name="descr_value" style="-unity-text-align: upper-center; font-size: 10px; text-overflow: clip; margin-bottom: 10px; margin-top: 0; white-space: normal;" />
+        <engine:VisualElement name="other" enabled="true" style="display: flex;">
+            <engine:VisualElement name="water" style="flex-grow: initial; flex-direction: row; flex-wrap: nowrap; flex-shrink: initial; flex-basis: auto; display: none;">
+                <engine:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/raindrop&apos;); -unity-background-scale-mode: scale-to-fit; max-width: 40px; margin-top: 5px; margin-bottom: 5px;" />
+                <engine:Label text="Label" name="water_value" />
             </engine:VisualElement>
-            <engine:VisualElement style="flex-grow: 1; flex-direction: row;">
-                <engine:VisualElement style="flex-grow: 1; background-image: url(&quot;project://database/Assets/UI%20Toolkit/UnityThemes/UnityDefaultRuntimeTheme.tss?fileID=4154780841294389669&amp;guid=c82ee7ab445972c41b143b285e4e806d&amp;type=3#arrow-down&quot;); -unity-background-scale-mode: stretch-to-fill; max-width: 40px;" />
-                <engine:Label text="Label" name="water" />
+            <engine:VisualElement name="energy" style="flex-grow: 1; flex-direction: row; display: none;">
+                <engine:VisualElement style="flex-grow: 1; background-image: resource(&apos;Icons/flash&apos;); -unity-background-scale-mode: scale-to-fit; max-width: 40px; margin-top: 5px; margin-bottom: 5px;" />
+                <engine:Label text="Label" name="energy_value" />
             </engine:VisualElement>
         </engine:VisualElement>
         <engine:VisualElement style="flex-grow: 1; flex-direction: row-reverse; height: 30px;">

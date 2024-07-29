@@ -1,0 +1,21 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/Resources/UI%20Toolkit/mainStyle.uss?fileID=7433441132597879392&amp;guid=3813c53b66f516a4f991a7bad9b8cec6&amp;type=3#mainStyle" />
+    <engine:VisualElement class="container" style="flex-grow: 1; width: 60px; height: auto; max-height: none; position: absolute; top: 30px;">
+        <engine:VisualElement style="flex-grow: 0; flex-direction: row;">
+            <engine:VisualElement style="flex-direction: column; background-image: resource(&apos;Icons/flash&apos;); margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; -unity-background-scale-mode: scale-to-fit; flex-shrink: 1; flex-basis: 60%;" />
+            <engine:Label text="0&#10;" name="Label" style="flex-basis: 40%; -unity-text-align: upper-center;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 0; flex-direction: row;">
+            <engine:VisualElement style="background-image: resource(&apos;Icons/raindrop&apos;); margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; -unity-background-scale-mode: scale-to-fit; flex-basis: 60%; align-items: auto; align-content: auto; flex-direction: row; flex-wrap: nowrap;" />
+            <engine:Label text="0" name="Label" style="align-self: auto; align-content: auto; justify-content: flex-start; align-items: auto; flex-wrap: nowrap; flex-direction: column; flex-basis: 40%; -unity-text-align: upper-center;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 0; flex-direction: row;">
+            <engine:VisualElement style="margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; -unity-background-scale-mode: scale-to-fit; flex-basis: 60%; background-image: resource(&apos;Icons/bricks&apos;);" />
+            <engine:Label text="0" name="Label" tabindex="-1" style="flex-basis: 40%; -unity-text-align: upper-center;" />
+        </engine:VisualElement>
+        <engine:VisualElement style="flex-grow: 0; flex-direction: row;">
+            <engine:VisualElement style="margin-top: 2px; margin-right: 2px; margin-bottom: 2px; margin-left: 2px; -unity-background-scale-mode: scale-to-fit; flex-basis: 60%; background-image: resource(&apos;Icons/concrete&apos;);" />
+            <engine:Label text="0" name="Label" style="flex-basis: 40%; -unity-text-align: upper-center;" />
+        </engine:VisualElement>
+    </engine:VisualElement>
+</engine:UXML>

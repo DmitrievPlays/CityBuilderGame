@@ -1,24 +1,52 @@
-﻿using UnityEngine;
-
-public class PowerPlant : MonoBehaviour, IStructure
+﻿public class PowerPlant : PowerProductor
 {
-    public string GetDescription()
+    public override double DestroyCost()
+    {
+        return 120000;
+    }
+
+    public override bool Enter(int amount)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override int GetCurrentOccupancy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override string GetDescription()
     {
         return "Снабжает близлежащие строения города электричеством.";
     }
 
-    public string GetName()
+    public override double GetGenerationRate()
+    {
+        return 9;
+    }
+
+    public override int GetMaxOccupancy()
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public override string GetName()
     {
         return "Электростанция";
     }
 
-    public double GetPlacementCost()
+    public override double GetPlacementCost()
     {
         return 170000;
     }
 
-    public bool IsDestructible()
+    public override double GetWaterDemand()
     {
-        return true;
+        return 0;
+    }
+
+    public override bool Leave(int amount)
+    {
+        throw new System.NotImplementedException();
     }
 }

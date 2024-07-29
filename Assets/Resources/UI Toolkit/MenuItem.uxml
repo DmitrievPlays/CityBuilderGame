@@ -1,0 +1,8 @@
+<engine:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:engine="UnityEngine.UIElements" xmlns:editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <engine:Button name="root" enabled="true" display-tooltip-when-elided="false" style="width: 50px; height: 50px; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; background-color: rgba(255, 255, 255, 0); position: relative;">
+        <engine:VisualElement style="flex-grow: 1; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
+            <engine:VisualElement name="icon" style="flex-grow: 1; width: auto; height: auto; max-width: 50px; max-height: 50px; position: absolute; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; top: 5px; right: 10px; bottom: 15px; left: 10px; background-image: none; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0;" />
+            <engine:Label text="Label" name="label" style="-unity-text-align: upper-center; font-size: 6%; -unity-font-style: bold; color: rgb(255, 255, 255); position: absolute; bottom: 0; padding-bottom: 0; margin-bottom: 0; padding-left: 2px; margin-left: 4px; left: 0; right: 0;" />
+        </engine:VisualElement>
+    </engine:Button>
+</engine:UXML>
