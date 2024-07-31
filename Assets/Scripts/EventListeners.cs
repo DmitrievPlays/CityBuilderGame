@@ -35,7 +35,6 @@ public class Events : MonoBehaviour
 
     public void Subscribe(string eventName, Action listener)
     {
-        Debug.Log(eventName);
         if (!actions.ContainsKey(eventName))
         {
             actions[eventName] = null;

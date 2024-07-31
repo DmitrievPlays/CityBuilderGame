@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class BuildingProcess : MonoBehaviour
 {
-    GameObject cursorBuilding, objToBuild;
+    GameObject cursorBuilding;
     Vector3 cursorWorldPos;
     Camera cam;
     Plane plane = new Plane(Vector3.up, 0);
@@ -36,8 +36,6 @@ public class BuildingProcess : MonoBehaviour
         CancelBuilding();
         Events.instance.Subscribe("LClick", a);
         cursorBuilding = Instantiate(obj);
-        objToBuild = Instantiate(obj);
-        Destroy(cursorBuilding.GetComponent<Collider>());
     }
 
     Vector3 RoundPosition(Vector3 pos)
@@ -53,9 +51,16 @@ public class BuildingProcess : MonoBehaviour
                 .SendMessage("Cannot build here!");
             return;
         }
-        GameObject placedObject = Instantiate(objToBuild);
+        if (Economy.instance.GetBalance(Material.MONEY) < cursorBuilding.GetComponent<IStructure>().GetPlacementCost())
+        {
+            Camera.main.transform.GetComponent<MessageService>()
+                .SendMessage("Not enough money to build the building!");
+            return;
+        }
+
+        GameObject placedObject = Instantiate(cursorBuilding);
         placedObject.transform.position = coords;
-        Economy.instance.PayMoney(placedObject.GetComponent<IStructure>().GetPlacementCost());
+        Economy.instance.PayMaterial(Material.MONEY, placedObject.GetComponent<IStructure>().GetPlacementCost());
     }
 
     public void CancelBuilding()
@@ -73,19 +78,10 @@ public class BuildingProcess : MonoBehaviour
 
     bool IsColliding()
     {
-        Renderer renderer = cursorBuilding.transform.GetComponent<Renderer>();
-        Bounds bounds = renderer.bounds;
+        Collider collider = cursorBuilding.transform.GetComponent<Collider>();
+        Bounds bounds = collider.bounds;
         LayerMask mask = LayerMask.GetMask("Default");
 
-        Collider[] colliders = Physics.OverlapBox(bounds.center, bounds.extents, cursorBuilding.transform.rotation, mask);
-        Debug.Log(colliders.Length.ToString());
-        foreach (Collider c in colliders)
-        {
-            Debug.Log(c.name);
-        }
-        //Debug.Log(stringBuilder.ToString());
-        // Debug.Log(a[0]?.gameObject.name + "/" + a[1]?.gameObject.name + "/" + a[2]?.gameObject.name);
-
-        return colliders.Length > 0;
+        return Physics.OverlapBox(bounds.center, bounds.extents, cursorBuilding.transform.rotation, mask).Length > 1;
     }
 }

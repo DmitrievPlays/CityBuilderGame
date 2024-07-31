@@ -1,12 +1,27 @@
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEngine.Rendering.DebugUI.Table;
+
+
+public enum Material
+{
+    MONEY,
+    GOLD,
+    ENERGY,
+    WATER,
+    BRICK,
+    CONCRETE
+}
+
 
 public class Economy : MonoBehaviour
 {
     public static Economy instance = null;
-    private double money = 1000000000;
-    private double gold = 100;
+    public static double money = 10000000;
+    private double gold = 50;
+    private double water = 3;
+    private double energy = 4;
+    private double brick = 15;
+    private double concrete = 10;
     private UIDocument topbar;
     static AudioClip clipPay;
 
@@ -38,35 +53,45 @@ public class Economy : MonoBehaviour
         l2.text = gold.ToString();
     }
 
-    public void PayMoney(double amount)
+    public void PayMaterial(Material material, double amount)
     {
-        money -= amount;
+        switch(material)
+        {
+            case Material.MONEY: money -= amount; break;
+            case Material.GOLD: gold -= amount; break;
+            case Material.ENERGY: energy -= amount; break;
+            case Material.WATER: water -= amount; break;
+            case Material.BRICK: brick -= amount; break;
+            case Material.CONCRETE: concrete -= amount; break;
+        }
         Camera.main.GetComponent<AudioSource>().PlayOneShot(clipPay);
+        //MUST BE REPLACED WITH AUDIO SYSTEM SOON
     }
 
-    public void GainMoney(double amount)
+    public void GainMaterial(Material material, double amount)
     {
-        money += amount;
+        switch (material)
+        {
+            case Material.MONEY: money += amount; break;
+            case Material.GOLD: gold += amount; break;
+            case Material.ENERGY: energy += amount; break;
+            case Material.WATER: water += amount; break;
+            case Material.BRICK: brick += amount; break;
+            case Material.CONCRETE: concrete += amount; break;
+        }
     }
 
-    public void PayGold(double amount)
+    public double GetBalance(Material material)
     {
-        gold -= amount;
-        Camera.main.GetComponent<AudioSource>().PlayOneShot(clipPay);
-    }
-
-    public void GainGold(double amount)
-    {
-        gold += amount;
-    }
-
-    public double GetMoneyBalance()
-    {
-        return money;
-    }
-
-    public double GetGoldBalance()
-    {
-        return gold;
+        switch (material)
+        {
+            case Material.MONEY: return money;
+            case Material.GOLD: return gold;
+            case Material.ENERGY: return energy;
+            case Material.WATER: return water;
+            case Material.BRICK: return brick;
+            case Material.CONCRETE: return concrete;
+            default: return 0;
+        }
     }
 }

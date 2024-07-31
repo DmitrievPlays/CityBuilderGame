@@ -1,9 +1,8 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterConsumer, IEnergyConsumer, IDestructible, IOccupancy
+public abstract class WaterProductor : MonoBehaviour, IStructure, IDestructible, IOccupancy, IWaterProducer
 {
     public abstract string GetDescription();
-    public abstract double GetEnergyDemand();
     public abstract string GetName();
     public abstract double GetPlacementCost();
     public abstract double GetWaterDemand();
@@ -16,7 +15,7 @@ public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterCon
                 .SendMessage("Not enough money to demolish the building!");
             return false;
         }
-            
+
         Economy.instance.PayMaterial(Material.MONEY, DestroyCost());
         Object.Destroy((this as MonoBehaviour)?.gameObject);
         Events.instance.TriggerEvent("removeInfo");
@@ -28,4 +27,5 @@ public abstract class ResidentialBuilding : MonoBehaviour, IStructure, IWaterCon
     public abstract int GetCurrentOccupancy();
     public abstract bool Leave(int amount);
     public abstract bool Enter(int amount);
+    public abstract double GetGenerationRate();
 }

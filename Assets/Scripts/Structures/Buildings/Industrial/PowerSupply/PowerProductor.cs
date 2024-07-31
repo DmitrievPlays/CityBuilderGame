@@ -9,7 +9,14 @@ public abstract class PowerProductor : MonoBehaviour, IStructure, IWaterConsumer
 
     public virtual bool Destroy()
     {
-        Economy.instance.PayMoney(DestroyCost());
+        if (Economy.instance.GetBalance(Material.MONEY) < DestroyCost())
+        {
+            Camera.main.transform.GetComponent<MessageService>()
+                .SendMessage("Not enough money to demolish the building!");
+            return false;
+        }
+
+        Economy.instance.PayMaterial(Material.MONEY, DestroyCost());
         Object.Destroy((this as MonoBehaviour)?.gameObject);
         Events.instance.TriggerEvent("removeInfo");
         return true;
